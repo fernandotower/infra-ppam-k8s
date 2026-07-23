@@ -1,6 +1,6 @@
-resource "aws_security_group" "turnos" {
+resource "aws_security_group" "k3s_node_access" {
   name_prefix = "${local.name_prefix}-k3s-"
-  description = "Network access for the Turnos k3s development instance"
+  description = "Network access for the PPAM k3s development instance"
   vpc_id      = data.aws_vpc.default.id
 
   ingress {

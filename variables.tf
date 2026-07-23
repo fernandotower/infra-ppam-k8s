@@ -18,7 +18,7 @@ variable "environment" {
 variable "project_name" {
   description = "Project name used to name and tag resources."
   type        = string
-  default     = "turnos"
+  default     = "ppam"
 
   validation {
     condition     = length(trimspace(var.project_name)) > 0
@@ -40,7 +40,18 @@ variable "instance_type" {
 variable "instance_name" {
   description = "Name tag assigned to the EC2 instance."
   type        = string
-  default     = "turnos-k3s-dev"
+  default     = "ppam-k3s-dev"
+}
+
+variable "node_count" {
+  description = "Number of k3s nodes to create. Keep this at 1 for the current single-node development environment."
+  type        = number
+  default     = 1
+
+  validation {
+    condition     = var.node_count >= 1 && var.node_count <= 3
+    error_message = "node_count must be between 1 and 3 for this AWS Academy sandbox configuration."
+  }
 }
 
 variable "volume_size" {

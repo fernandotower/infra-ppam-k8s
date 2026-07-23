@@ -1,4 +1,4 @@
-# Turnos k3s Development Platform
+# PPAM k3s Development Platform
 
 Terraform configuration for a low-cost AWS Academy sandbox environment. It reuses the account's default VPC and one of its default public subnets, then creates one Ubuntu EC2 instance suitable for a future single-node k3s cluster.
 
@@ -30,12 +30,13 @@ Terraform configuration for a low-cost AWS Academy sandbox environment. It reuse
    - Set `ssh_allowed_cidr` to your current public IP address with `/32` suffix.
    - Set `key_pair_name` to the name of an EC2 key pair that already exists in the selected Region.
    - Optionally set `ubuntu_ami_id` to pin a specific regional Ubuntu AMI. If omitted, the latest Canonical Ubuntu 22.04 LTS image is selected.
+   - Keep `node_count = 1` for the current environment. Increase it later to create up to three identically configured k3s nodes.
 
 Do not commit `terraform.tfvars`, AWS credentials, private keys, or Terraform state.
 
 ## Workflow
 
-Run all commands from this `terraform/` directory:
+Run all commands from this project directory:
 
 ```bash
 terraform init
