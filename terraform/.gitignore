@@ -8,6 +8,8 @@ terraform.tfstate.backup
 # Variable files may contain environment-specific values or secrets.
 *.tfvars
 !terraform.tfvars.example
+!environments/
+!environments/*.tfvars
 
 # Terraform CLI and crash files
 .terraformrc
